@@ -1,0 +1,11 @@
+---
+title: "tarea_optimizacion"
+output: pdf_document
+date: "2022-08-22"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+1. (0.5 pts.) Programe una función que construya una matriz A(n×p), cuyos elementos a\_ij, sean de la forma aij =i+j.
+2. 

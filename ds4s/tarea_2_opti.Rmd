@@ -1,0 +1,59 @@
+---
+title: "tarea_2_opti"
+author: "Cai Daniel Guajardo Ligueño"
+date: "2022-09-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+**1. (1 pts.)** Considere una economía donde se tranzan 2 bienes, los que quedan indexados por $i$, con $i = \left\{ 1,2 \right\}$. Las funciones de demanda (${Q}^{D}_{i}$) y de oferta (${Q}^{S}_{i}$), estan dadas por: 
+\begin{eqnarray}
+{Q}^{D}_{1} & = & 40 - 2 {P}_{1} + {P}_{2} \nonumber \\
+{Q}^{S}_{1} & = & - 5 + 3 {P}_{1} - {P}_{2} \nonumber \\
+{Q}^{D}_{2} & = & 90 + {P}_{1} - {P}_{2} \nonumber \\
+{Q}^{S}_{2} & = & - 2 + 2 {P}_{2} \nonumber
+\end{eqnarray}
+
+**Respuesta**\
+Lo primero que se hizo fue igualar ${Q}^{D}_{1}$ y ${Q}^{S}_{1}$ para sacar la cantidad y el precio de equilibrio del bien 1:
+
+$$
+40 - 2 {P}_{1} + {P}_{2} = - 5 + 3 {P}_{1} - {P}_{2}\\
+$$
+\begin{equation}
+45 - 5{P}_{1} + 2 {P}_{2} = 0\ \ \  (1)
+\end{equation}
+
+
+Ahora, lo mismo para el bien 2:
+\begin{eqnarray}
+90 + {P}_{1} - {P}_{2} = - 2 + 2 {P}_{2}\nonumber \\
+92 + {P}_{1} - 3 {P}_{2} = 0\ \ \  (2) \nonumber
+\end{eqnarray}
+
+
+Luego, se igualan las ecuaciones anteriores:
+$$
+92 + P_1 - 3P_2 = 45 - 5{P}_{1} + 2 {P}_{2} \\
+505 = 13P_2\\
+P_2 = 38,85
+$$
+
+Reemplazando $P_2$ en (2):
+$$
+92 + {P}_{1} - 3*38,85 = 0\\
+P_1 = 24,55
+$$
+Ahora para sacar las cantidades se reemplazan ambos valores en ambas ecuaciones de demanda:
+
+\begin{equation}
+{Q}^{D}_{1} = 40 - 2*24,55 + 38,85\\
+{Q}^{D}_{1} = 29,75.\\
+\end{equation}
+
+\begin{equation}
+{Q}^{D}_{2} = 90 + 24,55 - 38,85\\
+{Q}^{D}_{2} = 75,7.\\
+\end{equation}

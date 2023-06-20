@@ -1,0 +1,55 @@
+---
+title: "taller_prep_est1"
+author: "Cai Daniel Guajardo Ligueño"
+date: "2023-04-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+La base de datos UF+IVP+2022.csv contiene datos de algunos índices para expresar la reajustibilidad,es decir, el valor actualizado de una moneda, dependiendo de la inflación. En particular los índices considerados en esta base son la UF (Unidad de Fomento) e IVP (Índice del Valor Promedio).
+Para entender estos índices cabe mencionar que:
+- la UF corresponde a tasa promedio geométrica de la variación del IPC del mes anterior,
+- el IVP utiliza la variación semestral móvil que haya experimentado el IPC.
+
+Ambos índices están expresadas en pesos.
+A continuación se carga la base de datos.
+
+```{r}
+library(readxl)
+base = read.csv("https://raw.githubusercontent.com/Dfranzani/Bases-de-datos-para-cursos/main/2023-1/UF%2BIVP%2B2022.csv")
+head(base)
+```
+
+El siguiente código, utiliza la columna de Periodo para crear tres nuevas columnas: *Ano* (año de medición), *Mes* (mes de medición) y *Dia* (día de medición).
+
+```{r}
+fechas = matrix(unlist(strsplit(base$Periodo, "[.]")), ncol = 3, byrow = TRUE)
+base$Dia = as.numeric(fechas[,1])
+base$Mes = fechas[,2]
+base$Ano = as.numeric(fechas[,3])
+head(base)
+```
+
+Ejemplos
+
+1. Estudie la variabilidad (coeficiente de variación) de cada uno de los índices. Elabore un gráfico de violín (más caja y promedio) para cada uno de los índices. Comente e interprete.
+
+2. Similar a lo anterior, estudie la variabilidad de los datos por quincena, es decir, elabore un gráfico de violín (más caja y promedio) de los días de la primera quincena y otro para el resto de días, para cada uno de los índices. Comente e interprete.
+
+3. Compare el comportamiento de lo obtenido en 1 y 2.
+
+4. Elabore un gráfico de dispersión para estudiar el comportamiento entre ambos índices. Comente.
+
+```{r}
+cv_uf = sd(base$UF)/mean(base$UF)*100
+cv_ivp = sd(base$IVP)/mean(base$IVP)*100
+c(cv_uf, cv_ivp)
+```
+
